@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  @import "tailwindcss";
+
+  @theme {
+    --font-gt: "GT Cinetype Regular", sans-serif;
+    --font-mono: "Andale Mono", monospace;
+    --color-primary: #ee4822;
+    --color-background: #171717;
+    --color-foreground: #ffffff;
+    --color-secondary: #d4d4d4;
+    --color-grayc: #2f2f2f;
+    --color-btn-bg: #262626;
+  }
+
+  @layer base {
+    body {
+      font-family: var(--font-gt);
+      @apply text-sm antialiased text-white bg-[#171717];
+    }
+
+    code,
+    pre,
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+  }
+
+  @keyframes marqueeScroll {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-inner {
+    animation: marqueeScroll 25s linear infinite;
+  }
+
+  .marquee-reverse {
+    animation-direction: reverse;
+  }
+
+  body {
+    font-family: var(--font-gt);
+    font-family: var(--font-mono);
+    @apply text-sm antialiased text-white bg-[#171717];
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-inner {
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
