@@ -19,7 +19,7 @@ export default function Navbar() {
       <nav className="z-50 flex items-center justify-between w-full py-4 px-4 md:px-16 lg:px-24 xl:px-40 text-sm">
         <Link href="/">
           <Image
-            src="/logo.sv"
+            src="/logo.v"
             alt="Logo"
             width={130}
             height={36}
@@ -46,12 +46,12 @@ export default function Navbar() {
           >
             Get started
           </Link>
-          <Link
+          {/* <Link
             href="/"
             className="hidden md:block px-7 py-2 border border-bc active:scale-95 hover:bg-slate-50 transition-all rounded-full text-secondary hover:text-slate-900"
           >
             Login
-          </Link>
+          </Link> */}
         </div>
 
         <button

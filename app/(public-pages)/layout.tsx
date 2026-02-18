@@ -55,10 +55,10 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* <Banner /> */}
+      <Banner />
       <Navbar />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
