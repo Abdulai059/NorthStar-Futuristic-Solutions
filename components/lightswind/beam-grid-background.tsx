@@ -37,7 +37,7 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
   extraBeamCount = 3,
   idleSpeed = 1.15,
   interactive = true,
-  asBackground = true, // Key: Defaults to true for background use
+  asBackground = true,
   showFade = true,
   fadeIntensity = 20,
   className,
@@ -80,27 +80,26 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
     const cols = Math.floor(rect.width / gridSize);
     const rows = Math.floor(rect.height / gridSize);
 
-    // Initialize primary straight-line beams
-    const primaryBeams = Array.from({ length: beamCount }).map(() => ({
+    // Initialize vertical beams only
+    const createBeam = (type: "primary" | "extra") => ({
       x: Math.floor(Math.random() * cols),
       y: Math.floor(Math.random() * rows),
       dir: "y" as const,
       offset: Math.random() * gridSize,
-      speed: beamSpeed + Math.random() * 0.3,
-      type: "primary", // Identifier
-    }));
+      speed:
+        type === "primary"
+          ? beamSpeed + Math.random() * 0.3
+          : beamSpeed * 0.5 + Math.random() * 0.1,
+      type,
+    });
 
-    // Initialize extra beams
-    const extraBeams = Array.from({ length: extraBeamCount }).map(() => ({
-      x: Math.floor(Math.random() * cols),
-      y: Math.floor(Math.random() * rows),
-      dir: "y" as const,
-      offset: Math.random() * gridSize,
-      speed: beamSpeed * 0.5 + Math.random() * 0.1,
-      type: "extra", // Identifier
-    }));
+    const primaryBeams = Array.from({ length: beamCount }, () =>
+      createBeam("primary"),
+    );
+    const extraBeams = Array.from({ length: extraBeamCount }, () =>
+      createBeam("extra"),
+    );
 
-    // Combine all beams
     const allBeams = [...primaryBeams, ...extraBeams];
 
     const updateMouse = (e: MouseEvent) => {
@@ -137,23 +136,20 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
       const now = Date.now();
       const idle = now - lastMouseMoveRef.current > 2000;
 
+      // Draw vertical beams
       allBeams.forEach((beam) => {
         ctx.strokeStyle = activeBeamColor;
         ctx.lineWidth =
           beam.type === "extra" ? beamThickness * 0.75 : beamThickness;
 
-        if (beamGlow) {
-          ctx.shadowBlur = glowIntensity;
-          ctx.shadowColor = activeBeamColor;
-        } else {
-          ctx.shadowBlur = 0;
-        }
+        ctx.shadowBlur = beamGlow ? glowIntensity : 0;
+        ctx.shadowColor = beamGlow ? activeBeamColor : "transparent";
 
-        ctx.beginPath();
         const x = beam.x * gridSize;
         const beamLength = gridSize * 1.5;
         const start = -beamLength + (beam.offset % (rect.height + beamLength));
 
+        ctx.beginPath();
         ctx.moveTo(x, start);
         ctx.lineTo(x, start + beamLength);
         ctx.stroke();
@@ -162,14 +158,10 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
         if (beam.offset > rect.height + beamLength) beam.offset = -beamLength;
       });
 
-      // Reset shadow before drawing the interactive highlight
       ctx.shadowBlur = 0;
 
       requestAnimationFrame(draw);
     };
-
-    // Initial setup for beams to avoid a blank frame
-    // This is where you would call draw once or set up a listener for resize if needed
 
     draw();
 
@@ -193,14 +185,12 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
     interactive,
   ]);
 
-  // --- Component JSX ---
   return (
     <div
       ref={containerRef}
       className={`relative ${className || ""}`}
       {...props}
       style={{
-        // This ensures it becomes an absolute, full-covering background
         position: asBackground ? "absolute" : "relative",
         top: asBackground ? 0 : undefined,
         left: asBackground ? 0 : undefined,
@@ -212,8 +202,7 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
     >
       <canvas
         ref={canvasRef}
-        // pointer-events-none is CRUCIAL for letting mouse events pass to the content above.
-        className={`absolute top-0 left-0 w-full h-full z-0 pointer-events-none`}
+        className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
       />
 
       {showFade && (
@@ -226,7 +215,6 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
         />
       )}
 
-      {/* Content children are only rendered if asBackground is explicitly false */}
       {!asBackground && (
         <div className="relative z-0 w-full h-full">{children}</div>
       )}
