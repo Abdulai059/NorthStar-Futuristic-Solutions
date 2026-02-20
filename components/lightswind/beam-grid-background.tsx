@@ -84,8 +84,7 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
     const primaryBeams = Array.from({ length: beamCount }).map(() => ({
       x: Math.floor(Math.random() * cols),
       y: Math.floor(Math.random() * rows),
-      dir: "y" as "y",
-      //   dir: Math.random() > 0.5 ? "x" : ("y" as "x" | "y"),
+      dir: "y" as const,
       offset: Math.random() * gridSize,
       speed: beamSpeed + Math.random() * 0.3,
       type: "primary", // Identifier
@@ -95,8 +94,7 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
     const extraBeams = Array.from({ length: extraBeamCount }).map(() => ({
       x: Math.floor(Math.random() * cols),
       y: Math.floor(Math.random() * rows),
-      dir: "y" as "y",
-      //   dir: Math.random() > 0.5 ? "x" : ("y" as "x" | "y"),
+      dir: "y" as const,
       offset: Math.random() * gridSize,
       speed: beamSpeed * 0.5 + Math.random() * 0.1,
       type: "extra", // Identifier
