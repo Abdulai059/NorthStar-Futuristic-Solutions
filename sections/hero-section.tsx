@@ -60,20 +60,20 @@ export default function HeroSection() {
               className="bg-primary hover:bg-grayc text-white rounded-sm px-9 h-12 m-1 border-grayc  flex items-center transition-colors"
             >
               Book a Call
-              <ArrowRightIcon className="ml-1 size-5" />
+              <ArrowRightIcon className="ml-1 size-5 hidden md:flex " />
             </Link>
             <button className="flex items-center bg-grayc gap-2 border border-gray-600 hover:bg-primary transition rounded-sm px-7 h-12 text-zinc-300">
-              <VideoIcon className="size-5" />
+              <VideoIcon className="size-5 hidden md:flex " />
               <span>View demo</span>
             </button>
           </div>
 
-          <p className="py-6 text-base text-secondary mt-14">
-            Trusted by fast-growing teams worldwide
+          <p className="py-6 text-sm px-6 text-center md:text-base text-secondary mt-14">
+            Trusted by fast-growing businesses Ghana
           </p>
 
           <div
-            className="flex flex-wrap justify-between max-sm:justify-center gap-10 max-w-3xl w-full mx-auto py-4"
+            className="hidden md:flex  flex-wrap justify-between max-sm:justify-center gap-10 max-w-3xl w-full mx-auto py-4"
             id="logo-container"
           >
             {companiesLogo.map((company, index) => (
@@ -84,7 +84,7 @@ export default function HeroSection() {
           <a
             href=""
             target="_blank"
-            className="group group absolute top-[55%] left-[10%] flex flex-col items-center justify-center h-12.5 w-40 no-underline cursor-pointer z-9999"
+            className="group group absolute top-[55%] left-[10%] hidden md:flex  flex-col items-center justify-center h-12.5 w-40 no-underline cursor-pointer z-9999"
           >
             <button className="absolute h-12.5 w-40 border-none rounded-[13px] bg-[hsla(155,100%,94%,1%)] shadow-[0px_-3px_15px_0px_hsla(155,100%,100%,25%)_inset] text-secondary text-base flex flex-col items-center justify-center translate-y-0 transition-all duration-200 ease-in-out group-hover:translate-y-1.25">
               Automation
@@ -95,7 +95,7 @@ export default function HeroSection() {
           <a
             href=""
             target="_blank"
-            className="group group absolute top-[30%] right-[10%] flex flex-col items-center justify-center h-12.5 w-40 no-underline cursor-pointer z-9999"
+            className="group group absolute top-[30%] right-[10%] hidden md:flex flex-col items-center justify-center h-12.5 w-40 no-underline cursor-pointer z-9999"
           >
             <button className="absolute h-12.5 w-40 border-none rounded-[13px] bg-[hsla(155,100%,94%,1%)] shadow-[0px_-3px_15px_0px_hsla(155,100%,100%,25%)_inset] text-secondary text-base flex flex-col items-center justify-center translate-y-0 transition-all duration-200 ease-in-out group-hover:translate-y-1.25">
               Optimize

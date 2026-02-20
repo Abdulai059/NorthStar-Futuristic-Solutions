@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: {
     default: "Launchify — PrebuiltUI",
     template: "%s | Launchify",
@@ -57,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Banner />
       <Navbar />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   );

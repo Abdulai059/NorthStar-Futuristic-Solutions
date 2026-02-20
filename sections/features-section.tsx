@@ -1,127 +1,202 @@
 "use client";
 
-import SectionTitle from "@/components/section-title";
-import { ZapIcon } from "lucide-react";
 import { useState } from "react";
+import { Users, Target, Rocket } from "lucide-react";
+import { useFadeIn } from "@/hooks/useFadeIn";
 
-export default function FeaturesSection() {
-  const [isHover, setIsHover] = useState(false);
+const features = [
+  {
+    icon: Target,
+    color: "text-primary",
+    title: "Mission-Driven",
+    desc: "We exist to make practical AI accessible to schools, shops, and NGOs in Northern Ghana — tools that work for you, not against you.",
+  },
+  {
+    icon: Users,
+    color: "text-emerald-400",
+    title: "Local Expertise",
+    desc: "Born and based in Tamale. We understand the real challenges of Northern Ghanaian businesses because we live them every day.",
+  },
+  {
+    icon: Rocket,
+    color: "text-amber-400",
+    title: "Fast & Affordable",
+    desc: "No long timelines or corporate pricing. We build and deliver working automations in days, priced for the local market.",
+  },
+];
+
+function SectionBadge({ label }: { label: string }) {
+  return (
+    <div className="inline-flex items-center gap-2 border border-grayc px-4 py-1.5 rounded-full mb-6">
+      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+      <span className="text-xs font-semibold tracking-widest uppercase text-secondary">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+export default function AboutSection() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const activeIndex = hovered ?? 0;
+
+  const { ref, fadeUp } = useFadeIn();
 
   return (
-    <>
-      <SectionTitle
-        icon={<ZapIcon className="size-4 stroke-primary" />}
-        badge="How it works"
-        title="Create smarter, faster"
-        description="From idea to launch, Launchify streamlines every step with intelligent automation and flexible customization."
-      />
-      <div
-        id="features"
-        className="flex flex-col md:flex-row items-center justify-center scroll-m-48"
-      >
-        <img
-          className="max-w-2xl w-full xl:-ml-32"
-          src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/group-image-1.png"
-          alt=""
-        />
-        <div
-          className="max-md:px-4 max-md:pb-32"
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-        >
+    <section
+      ref={ref}
+      className="relative py-24 px-4 md:px-[5vw] overflow-hidden"
+    >
+      <div className="relative max-w-6xl mx-auto">
+        {/* Header */}
+        <div style={fadeUp(0)} className="text-center mb-16">
+          <SectionBadge label="About NorthStar" />
+          <h2
+            className="font-medium text-3xl md:text-4xl text-white mb-4"
+            style={{ fontFamily: "'Syne', sans-serif" }}
+          >
+            Built for Local Impact
+          </h2>
+          <p className="text-secondary text-sm max-w-lg mx-auto leading-relaxed">
+            NorthStar Futuristic Solutions is Tamale's AI automation partner —
+            helping small organizations work smarter with tools that are simple,
+            affordable, and built for the real world.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-0 md:gap-16">
+          {/* Left Card */}
           <div
-            className={
-              "flex items-center justify-center gap-6 max-w-md group cursor-pointer"
-            }
+            style={fadeUp(0.15)}
+            className="relative w-full max-w-sm md:max-w-md flex-shrink-0"
           >
             <div
-              className={`p-6 group-hover:bg-grayc border border-transparent hover:text-secondary group-hover:border-grayc-300 flex gap-4 rounded-xl transition-colors ${!isHover ? "border-grayc-300 bg-grayc-100" : ""}`}
+              className="relative rounded-sm overflow-hidden border border-grayc"
+              style={{ aspectRatio: "4/5" }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="size-6 stroke-violet-400"
-              >
-                <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" />
-                <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
-              </svg>
-              <div className="space-y-2">
-                <h3 className="text-base font-semibold text-zinc-300">
-                  Smart Automation
-                </h3>
-                <p className="text-sm dark:text-neutral-400 max-w-xs">
-                  Automate layouts, content and structure using AI-generated
-                  components tailored to your goals.
-                </p>
+              <div
+                className="absolute inset-0 opacity-[0.04]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+                  backgroundSize: "32px 32px",
+                }}
+              />
+
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-10">
+                <div
+                  className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500"
+                  style={{
+                    background: "linear-gradient(135deg, #ee4822, #c93a18)",
+                    boxShadow:
+                      activeIndex === 0
+                        ? "0 0 60px rgba(238,72,34,0.4)"
+                        : activeIndex === 1
+                          ? "0 0 60px rgba(52,211,153,0.25)"
+                          : "0 0 60px rgba(251,191,36,0.25)",
+                  }}
+                >
+                  <span
+                    className="text-3xl font-bold text-white"
+                    style={{ fontFamily: "'Syne', sans-serif" }}
+                  >
+                    NFS
+                  </span>
+                </div>
+
+                <div className="text-center space-y-2 transition-all duration-500">
+                  <p
+                    className="text-lg font-medium text-white"
+                    style={{ fontFamily: "'Syne', sans-serif" }}
+                  >
+                    {features[activeIndex].title}
+                  </p>
+                  <p className="text-secondary text-xs leading-relaxed max-w-[200px] mx-auto">
+                    {features[activeIndex].desc}
+                  </p>
+                </div>
+
+                <div className="flex gap-2 mt-2">
+                  {features.map((_, i) => (
+                    <div
+                      key={i}
+                      className="h-1 rounded-full transition-all duration-300"
+                      style={{
+                        width: activeIndex === i ? "24px" : "8px",
+                        background:
+                          activeIndex === i
+                            ? "#ee4822"
+                            : "rgba(255,255,255,0.15)",
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-6 max-w-md group cursor-pointer">
-            <div className="p-6 group-hover:bg-grayc border border-transparent group-hover:border-graygrayc-300 flex gap-4 rounded-xl transition-colors">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="size-6 stroke-green-600"
+
+          {/* Right Features */}
+          <div
+            style={fadeUp(0.25)}
+            className="w-full max-w-md mt-8 md:mt-0"
+            onMouseLeave={() => setHovered(null)}
+          >
+            {features.map(({ icon: Icon, color, title, desc }, i) => (
+              <div
+                key={title}
+                style={fadeUp(0.35 + i * 0.1)}
+                className="group cursor-pointer"
+                onMouseEnter={() => setHovered(i)}
               >
-                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
-              </svg>
-              <div className="space-y-2">
-                <h3 className="text-base font-semibold text-zinc-300">
-                  Enterprise-Ready Security
-                </h3>
-                <p className="text-sm  dark:text-neutral-400 max-w-xs">
-                  Secure infrastructure with encryption, access controls and
-                  compliance-ready architecture.
-                </p>
+                <div
+                  className={`flex gap-5 p-6 rounded-sm border transition-all duration-300 ${
+                    activeIndex === i
+                      ? "border-grayc bg-grayc"
+                      : "border-transparent hover:border-grayc hover:bg-grayc/50"
+                  }`}
+                >
+                  <div
+                    className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300"
+                    style={{
+                      background:
+                        activeIndex === i
+                          ? "rgba(238,72,34,0.1)"
+                          : "transparent",
+                      border:
+                        activeIndex === i
+                          ? "1px solid rgba(238,72,34,0.2)"
+                          : "1px solid rgba(255,255,255,0.06)",
+                    }}
+                  >
+                    <Icon className={`w-5 h-5 ${color}`} />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <h3
+                      className="text-sm font-medium text-white"
+                      style={{ fontFamily: "'Syne', sans-serif" }}
+                    >
+                      {title}
+                    </h3>
+                    <p className="text-secondary text-xs leading-relaxed max-w-xs">
+                      {desc}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-center gap-6 max-w-md group cursor-pointer">
-            <div className="p-6 group-hover:bg-grayc border border-transparent group-hover:border-grayc-300 flex gap-4 rounded-xl transition-colors">
-              <svg
-                className="size-6 stroke-primary"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            ))}
+
+            <div className="px-6 pt-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 text-xs font-medium text-primary transition-all duration-200 hover:gap-3"
               >
-                <path d="M12 15V3" />
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <path d="m7 10 5 5 5-5" />
-              </svg>
-              <div className="space-y-2">
-                <h3 className="text-base font-semibold text-zinc-00">
-                  Fully Customizable
-                </h3>
-                <p className="text-sm dark:text-neutral-400  max-w-xs">
-                  Edit layouts, styles and components effortlessly to match your
-                  brand identity.
-                </p>
-              </div>
+                Work with us →
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }

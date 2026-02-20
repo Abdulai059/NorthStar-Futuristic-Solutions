@@ -69,3 +69,7 @@
 .marquee-reverse {
   animation-direction: reverse;
 }
+
+html {
+  scroll-behavior: smooth;
+}
