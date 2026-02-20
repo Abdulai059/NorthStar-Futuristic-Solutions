@@ -137,7 +137,6 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
       const now = Date.now();
       const idle = now - lastMouseMoveRef.current > 2000;
 
-      // Beam effect intensity and movement
       allBeams.forEach((beam) => {
         ctx.strokeStyle = activeBeamColor;
         ctx.lineWidth =
@@ -151,30 +150,16 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
         }
 
         ctx.beginPath();
-        if (beam.dir === "x") {
-          const y = beam.y * gridSize;
-          const beamLength = gridSize * 1.5;
-          const start = -beamLength + (beam.offset % (rect.width + beamLength));
+        const x = beam.x * gridSize;
+        const beamLength = gridSize * 1.5;
+        const start = -beamLength + (beam.offset % (rect.height + beamLength));
 
-          ctx.moveTo(start, y);
-          ctx.lineTo(start + beamLength, y);
-          ctx.stroke();
+        ctx.moveTo(x, start);
+        ctx.lineTo(x, start + beamLength);
+        ctx.stroke();
 
-          beam.offset += idle ? beam.speed * idleSpeed * 60 : beam.speed * 60;
-          if (beam.offset > rect.width + beamLength) beam.offset = -beamLength;
-        } else {
-          const x = beam.x * gridSize;
-          const beamLength = gridSize * 1.5;
-          const start =
-            -beamLength + (beam.offset % (rect.height + beamLength));
-
-          ctx.moveTo(x, start);
-          ctx.lineTo(x, start + beamLength);
-          ctx.stroke();
-
-          beam.offset += idle ? beam.speed * idleSpeed * 60 : beam.speed * 60;
-          if (beam.offset > rect.height + beamLength) beam.offset = -beamLength;
-        }
+        beam.offset += idle ? beam.speed * idleSpeed * 60 : beam.speed * 60;
+        if (beam.offset > rect.height + beamLength) beam.offset = -beamLength;
       });
 
       // Reset shadow before drawing the interactive highlight
