@@ -1,6 +1,6 @@
 export default function CTASection() {
   return (
-    <div className="border-y border-dashed border-grayc w-full max-w-5xl mx-auto px-10 sm:px-16 md:mt-40">
+    <div className="border-y border-dashed border-grayc w-full max-w-5xl mx-auto px-10 sm:px-16 md:mt-40 mt-20">
       <div className="flex flex-col md:flex-row text-center md:text-left items-center justify-between gap-8 px-3 md:px-10 border-x border-dashed border-grayc py-16 sm:py-20 -mt-10 -mb-10 w-full">
         <p className="md:text-lg text-base font-medium max-w-md text-secondary">
           Start automating today and join the growing NFS community.

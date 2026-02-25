@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-20 py-16 px-6 md:px-16 lg:px-24 xl:px-32 border-t border-[var(--color-grayc)] bg-[var(--color-background)] text-[var(--color-secondary)] mt-52">
+    <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-20 py-16 px-6 md:px-16 lg:px-24 xl:px-32 border-t border-grayc bg-background text-secondary md:mt-52 mt-20">
       <div className="flex flex-wrap items-start gap-10 md:gap-15 xl:gap-35">
         {/* <a href="/" className="max-md:w-full max-md:mb-10">
           <Image
