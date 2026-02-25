@@ -207,7 +207,7 @@ const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
 
       {showFade && (
         <div
-          className="pointer-events-none absolute inset-0 bg-white dark:bg-black"
+          className="pointer-events-none absolute inset-0 bg-[var(--color-background)]"
           style={{
             maskImage: `radial-gradient(ellipse at center, transparent ${fadeIntensity}%, black)`,
             WebkitMaskImage: `radial-gradient(ellipse at center, transparent ${fadeIntensity}%, black)`,

@@ -69,13 +69,13 @@ export default function PricingSection() {
 
         <Toggle isYearly={isYearly} setIsYearly={setIsYearly} />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full items-end">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full">
           {pricingData.map((plan: PricingData, index: number) => (
             <div
               key={index}
               className={
                 plan.mostPopular
-                  ? "bg-linear-to-r from-primary to-orange-300 rounded-3xl p-2 hover:shadow-lg transition-shadow"
+                  ? "bg-gradient-to-r from-primary to-orange-300 rounded-2xl p-1 sm:p-2 hover:shadow-lg transition-shadow"
                   : ""
               }
             >
@@ -86,11 +86,11 @@ export default function PricingSection() {
               )}
               <div
                 key={index}
-                className={`rounded-3xl p-6 bg-white ${!plan.mostPopular ? "border border-neutral-200 hover:shadow-lg transition-shadow" : ""}`}
+                className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white ${!plan.mostPopular ? "border border-neutral-200 hover:shadow-lg transition-shadow" : ""}`}
               >
                 <h3 className="text-neutral-700 text-sm mb-6">{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-8">
-                  <span className="text-[28px] text-neutral-900">
+                  <span className="text-2xl sm:text-[28px] text-neutral-900">
                     {isYearly
                       ? `$${plan.pricing - Math.round(plan.pricing * 0.15)}`
                       : `$${plan.pricing}`}
@@ -108,7 +108,7 @@ export default function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full cursor-pointer py-3 rounded-full bg-linear-to-r from-green-500 to-green-300 text-white text-sm hover:opacity-95 transition-opacity">
+                <button className="w-full cursor-pointer py-3 rounded-full bg-gradient-to-r from-green-500 to-green-300 text-white text-sm hover:opacity-95 transition-opacity">
                   Get started
                 </button>
               </div>

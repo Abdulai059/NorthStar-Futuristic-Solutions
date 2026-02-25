@@ -64,11 +64,11 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-0 md:gap-16">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-0 lg:gap-16">
           {/* Left Card */}
           <div
             style={fadeUp(0.15)}
-            className="relative w-full max-w-sm md:max-w-md flex-shrink-0"
+            className="relative w-full max-w-sm lg:max-w-md flex-shrink-0 order-2 lg:order-1 mt-8 lg:mt-0"
           >
             <div
               className="relative rounded-sm overflow-hidden border border-grayc"
@@ -138,7 +138,7 @@ export default function AboutSection() {
           {/* Right Features */}
           <div
             style={fadeUp(0.25)}
-            className="w-full max-w-md mt-8 md:mt-0"
+            className="w-full max-w-md order-1 lg:order-2"
             onMouseLeave={() => setHovered(null)}
           >
             {features.map(({ icon: Icon, color, title, desc }, i) => (

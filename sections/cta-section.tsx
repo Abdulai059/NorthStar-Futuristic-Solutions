@@ -1,15 +1,16 @@
 export default function CTASection() {
   return (
-    <div className="border-y border-dashed border-neutral-700 w-full max-w-5xl mx-auto px-10 sm:px-16 mt-40">
-      <div className="flex flex-col md:flex-row text-center md:text-left items-center justify-between gap-8 px-3 md:px-10 border-x border-dashed border-neutral-700 py-16 sm:py-20 -mt-10 -mb-10 w-full">
-        <p className="text-xl font-medium max-w-md text-neutral-400">
-          Start the repo and join the growing Launchify community.
+    <div className="border-y border-dashed border-grayc w-full max-w-5xl mx-auto px-10 sm:px-16 md:mt-40">
+      <div className="flex flex-col md:flex-row text-center md:text-left items-center justify-between gap-8 px-3 md:px-10 border-x border-dashed border-grayc py-16 sm:py-20 -mt-10 -mb-10 w-full">
+        <p className="md:text-lg text-base font-medium max-w-md text-secondary">
+          Start automating today and join the growing NFS community.
         </p>
+
         <a
-          href="https://prebuiltui.com"
+          href="/contact"
           className="flex items-center gap-2 rounded-lg py-3 px-8 bg-primary hover:bg-grayc transition text-white"
         >
-          <span>Star On Github</span>
+          <span>Get Started</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -20,7 +21,7 @@ export default function CTASection() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="size-4.5"
+            className="size-4"
           >
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />

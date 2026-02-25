@@ -36,10 +36,10 @@ export default function TestimonialSection() {
   ];
 
   const CreateCard = ({ card }: { card: CardProps }) => (
-    <div className="p-4 rounded-lg mx-4 shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
+    <div className="p-3 sm:p-4 rounded-lg mx-2 sm:mx-4 shadow hover:shadow-lg transition-all duration-200 w-64 sm:w-72 shrink-0">
       <div className="flex gap-2">
         <img
-          className="size-11 rounded-full"
+          className="size-10 sm:size-11 rounded-full"
           src={card.image}
           alt="User Image"
         />
@@ -63,7 +63,7 @@ export default function TestimonialSection() {
           <span className="text-xs text-zinc-300">{card.handle}</span>
         </div>
       </div>
-      <p className="text-sm py-4 dark:text-neutral-400 font-mono">
+      <p className="text-xs sm:text-sm py-4 dark:text-neutral-400 font-mono">
         Launchify helped us ship our product in days instead of weeks. The
         experience feels effortless.
       </p>
@@ -71,7 +71,7 @@ export default function TestimonialSection() {
   );
 
   return (
-    <>
+    <div className="py-0 md:py-40">
       <SectionTitle
         badge="Testimonials"
         icon={<MessageCircleCodeIcon className="size-4" />}
@@ -82,24 +82,24 @@ export default function TestimonialSection() {
         id="testimonials"
         className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative scroll-m-48"
       >
-        <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-linear-to-r from-background to-transparent"></div>
-        <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5">
+        <div className="absolute left-0 top-0 h-full w-12 sm:w-20 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent"></div>
+        <div className="marquee-inner flex transform-gpu min-w-[200%] pt-8 sm:pt-10 pb-4 sm:pb-5">
           {[...cardsData, ...cardsData].map((card, index) => (
             <CreateCard key={index} card={card} />
           ))}
         </div>
-        <div className="absolute right-0 top-0 h-full w-20 md:w-35 z-10 pointer-events-none bg-linear-to-l from-background to-transparent"></div>
+        <div className="absolute right-0 top-0 h-full w-12 sm:w-20 md:w-35 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent"></div>
       </div>
 
-      <div className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative">
-        <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-linear-to-r from-background to-transparent"></div>
-        <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-10 pb-5">
+      {/* <div className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative">
+        <div className="absolute left-0 top-0 h-full w-12 sm:w-20 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent"></div>
+        <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-8 sm:pt-10 pb-4 sm:pb-5">
           {[...cardsData, ...cardsData].map((card, index) => (
             <CreateCard key={index} card={card} />
           ))}
         </div>
-        <div className="absolute right-0 top-0 h-full w-20 md:w-35 z-10 pointer-events-none bg-linear-to-l from-background to-transparent"></div>
-      </div>
-    </>
+        <div className="absolute right-0 top-0 h-full w-12 sm:w-20 md:w-35 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent"></div>
+      </div> */}
+    </div>
   );
 }

@@ -17,7 +17,7 @@ export default function Home() {
       <ServicePage />
       <HowWeWork />
       <TestimonialSection />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <CTASection />
     </>
   );
