@@ -5,16 +5,17 @@ import PricingSection from "@/sections/pricing-section";
 import TeamSection from "@/sections/team-section";
 import TestimonialSection from "@/sections/testimonial-section";
 import AboutPage from "../about/page";
-import ServicePage from "../services/page";
+// import ServicePage from "../services/page";
 import AboutSection from "@/sections/features-section";
 import HowWeWork from "@/components/ui/HomeWeWork";
+import ServicesSection from "@/sections/services-section";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <AboutSection />
-      <ServicePage />
+      <ServicesSection />
       <HowWeWork />
       <TestimonialSection />
       {/* <PricingSection /> */}
