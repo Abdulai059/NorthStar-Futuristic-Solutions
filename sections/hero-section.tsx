@@ -31,10 +31,10 @@ export default function HeroSection() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping duration-300"></span>
               <span className="relative inline-flex size-2 rounded-full bg-primary"></span>
             </div>
-            <span>Book a live demo today</span>
+            <span className="text-xs">Book a live demo today</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl min-[640px]:text-[42px] font-gt font-medium max-w-5xl text-center mt-4 md:leading-17.5 text-white px-4">
+          <h1 className="text-2xl sm:text-4xl min-[640px]:text-[42px] font-gt font-medium max-w-5xl text-center mt-4 md:leading-17.5 text-white px-4">
             Smart AI Systems for{" "}
             <span className="bg-clip-text text-primary">
               <Typewriter

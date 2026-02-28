@@ -44,8 +44,8 @@ export default function ServiceSection() {
           </h1>
 
           <p className="text-xs max-w-lg mx-auto leading-relaxed text-secondary">
-            AI tools built for businesses in Tamale — simple, affordable, and
-            effective.
+            AI tools built for businesses in northern Ghana. Simple, affordable,
+            and effective.
           </p>
         </div>
 

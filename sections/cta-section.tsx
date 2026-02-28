@@ -2,7 +2,7 @@ export default function CTASection() {
   return (
     <div className="border-y border-dashed border-grayc w-full max-w-5xl mx-auto px-10 sm:px-16 md:mt-40 mt-20">
       <div className="flex flex-col md:flex-row text-center md:text-left items-center justify-between gap-8 px-3 md:px-10 border-x border-dashed border-grayc py-16 sm:py-20 -mt-10 -mb-10 w-full">
-        <p className="md:text-lg text-sm font-medium max-w-md text-secondary">
+        <p className="md:text-base text-sm font-normal max-w-md text-secondary">
           Start automating today and join the growing NFS community.
         </p>
 
@@ -10,7 +10,7 @@ export default function CTASection() {
           href="/contact"
           className="flex items-center gap-2 rounded-lg py-3 px-8 bg-primary hover:bg-grayc transition text-white"
         >
-          <span>Get Started</span>
+          <span>Book A Demo</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          href="https://db.onlinewebfonts.com/c/110de0bbe7344f96136d5cedd6608f9d?family=GT+Cinetype+Regular"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
         <link

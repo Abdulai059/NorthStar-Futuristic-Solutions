@@ -9,7 +9,7 @@ const features = [
     icon: Target,
     color: "text-primary",
     title: "Mission-Driven",
-    desc: "We exist to make practical AI accessible to schools, shops, and NGOs in Northern Ghana — tools that work for you, not against you.",
+    desc: "We exist to make practical AI accessible to schools, businesses, civil society organizations, and NGOs in Northern Ghana. Tools that work for you, not against you.",
   },
   {
     icon: Users,
@@ -48,7 +48,6 @@ export default function AboutSection() {
       className="relative py-24 px-4 md:px-[5vw] overflow-hidden"
     >
       <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
         <div style={fadeUp(0)} className="text-center mb-16">
           <SectionBadge label="About NorthStar" />
           <h2
@@ -58,17 +57,16 @@ export default function AboutSection() {
             Built for Local Impact
           </h2>
           <p className="text-secondary text-sm max-w-lg mx-auto leading-relaxed">
-            NorthStar Futuristic Solutions is Tamale's AI automation partner —
-            helping small organizations work smarter with tools that are simple,
-            affordable, and built for the real world.
+            NorthStar Futuristic Solutions is northern Ghana’s AI automation
+            partner helping small organizations work smarter with tools that are
+            simple, affordable, and built for the real world.
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-0 lg:gap-16">
-          {/* Left Card */}
           <div
             style={fadeUp(0.15)}
-            className="relative w-full max-w-sm lg:max-w-md flex-shrink-0 order-2 lg:order-1 mt-8 lg:mt-0"
+            className="relative w-full max-w-sm lg:max-w-md shrink-0 order-2 lg:order-1 mt-8 lg:mt-0"
           >
             <div
               className="relative rounded-sm overflow-hidden border border-grayc"
@@ -135,7 +133,6 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right Features */}
           <div
             style={fadeUp(0.25)}
             className="w-full max-w-md order-1 lg:order-2"
@@ -156,7 +153,7 @@ export default function AboutSection() {
                   }`}
                 >
                   <div
-                    className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300"
+                    className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300"
                     style={{
                       background:
                         activeIndex === i
