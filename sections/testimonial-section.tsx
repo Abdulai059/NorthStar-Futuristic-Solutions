@@ -10,24 +10,24 @@ interface CardProps {
 const cardsData: CardProps[] = [
   {
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
+      "https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200",
     name: "Issah Abdul-Razak",
     handle: "@issah_aa",
-    text: "NFS set up our school invoicing in days. Parents get WhatsApp alerts automatically — no more chasing payments manually.",
+    text: "NFS set up our school invoicing in days. Parents get WhatsApp alerts automatically no more chasing payments manually.",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
+      "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?q=80&w=200",
     name: "Fatima Seidu",
     handle: "@fatima_lifecare",
     text: "We tracked stock in notebooks before NFS. Now we have a live dashboard and alerts. Haven't run out of stock since.",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200",
+      "https://images.unsplash.com/photo-1507152832244-10d45c7eda57?q=80&w=200",
     name: "Baba Musah",
     handle: "@baba_zara",
-    text: "Content Factory keeps our pages active every week. We get walk-ins asking about products they saw online — that never happened before.",
+    text: "Content Factory keeps our pages active every week. We get walk-ins asking about products they saw online that never happened before.",
   },
 ];
 
@@ -57,13 +57,13 @@ const Card = ({ card }: { card: CardProps }) => (
       />
       <div className="flex flex-col">
         <div className="flex items-center gap-1">
-          <p className="font-gt text-sm text-white">{card.name}</p>
+          <p className="text-sm text-white">{card.name}</p>
           <VerifiedIcon />
         </div>
         <span className="text-xs text-zinc-500">{card.handle}</span>
       </div>
     </div>
-    <p className="text-xs sm:text-sm leading-relaxed text-secondary font-mono">
+    <p className="text-xs sm:text-sm leading-relaxed text-secondary ">
       "{card.text}"
     </p>
   </div>
@@ -77,7 +77,7 @@ export default function TestimonialSection() {
           <MessageCircleCode className="size-3.5" />
           Testimonials
         </span>
-        <h2 className="font-gt text-xl md:text-4xl text-white mb-3">
+        <h2 className="text-xl md:text-4xl text-white mb-3">
           What our clients are saying
         </h2>
         <p className="text-sm text-secondary max-w-md mx-auto leading-relaxed">
@@ -98,16 +98,6 @@ export default function TestimonialSection() {
         </div>
         <div className="absolute right-0 top-0 h-full w-12 sm:w-20 md:w-35 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent" />
       </div>
-
-      {/* <div className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative mt-2">
-        <div className="absolute left-0 top-0 h-full w-12 sm:w-20 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent" />
-        <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-4 pb-4 sm:pb-5">
-          {[...cardsData, ...cardsData].map((card, i) => (
-            <Card key={i} card={card} />
-          ))}
-        </div>
-        <div className="absolute right-0 top-0 h-full w-12 sm:w-20 md:w-35 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent" />
-      </div> */}
     </div>
   );
 }
