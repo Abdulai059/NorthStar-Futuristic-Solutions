@@ -13,10 +13,10 @@ export default function HeroSection() {
       <div className="relative overflow-hidden">
         <BeamGridBackground
           gridColor="rgba(255,255,255,0.05)"
-          darkGridColor="rgba(255,255,255,0.05)"
-          beamColor="rgba(0, 200, 255, 0.9)"
+          darkGridColor="rgba(255,255,255,0.005)"
+          beamColor="rgba(0, 200, 255, 0.5)"
           darkBeamColor="#ee4822"
-          beamThickness={0.75}
+          beamThickness={0.5}
           beamCount={3}
           beamSpeed={-0.05}
           extraBeamCount={0}

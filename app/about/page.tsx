@@ -3,6 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 import Layout from "../(public-pages)/layout";
 import HowWeWork from "@/components/ui/HomeWeWork";
+import {
+  Zap,
+  TrendingUp,
+  Globe,
+  HandshakeIcon,
+  BookOpen,
+  Shield,
+  Target,
+  Telescope,
+  Bot,
+  BarChart2,
+  Megaphone,
+  PenLine,
+  Check,
+} from "lucide-react";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,32 +66,32 @@ const stats = [
 
 const values = [
   {
-    icon: "⚡",
+    icon: <Zap className="size-5 text-primary" />,
     title: "Simplicity",
     desc: "Solutions must be easy to use and implement — from day one.",
   },
   {
-    icon: "📈",
+    icon: <TrendingUp className="size-5 text-primary" />,
     title: "Impact",
     desc: "Every automation should create measurable, real-world value.",
   },
   {
-    icon: "🌍",
+    icon: <Globe className="size-5 text-primary" />,
     title: "Local First",
     desc: "We prioritize the needs and realities of Northern Ghanaian businesses.",
   },
   {
-    icon: "🤝",
+    icon: <HandshakeIcon className="size-5 text-primary" />,
     title: "Trust & Transparency",
     desc: "Affordable, honest, and accountable delivery — always.",
   },
   {
-    icon: "📚",
+    icon: <BookOpen className="size-5 text-primary" />,
     title: "Continuous Learning",
     desc: "Improving systems, workflows, and knowledge every single day.",
   },
   {
-    icon: "🛡️",
+    icon: <Shield className="size-5 text-primary" />,
     title: "Reliability",
     desc: "We show up, we deliver, and we stand behind our work.",
   },
@@ -132,6 +147,29 @@ const whyItems = [
   },
 ];
 
+const orbitTags = [
+  {
+    icon: <Bot className="size-3.5" />,
+    text: "AI Automation",
+    pos: "top-3 left-4",
+  },
+  {
+    icon: <BarChart2 className="size-3.5" />,
+    text: "Data Insights",
+    pos: "top-3 right-4",
+  },
+  {
+    icon: <Megaphone className="size-3.5" />,
+    text: "Lead Generation",
+    pos: "bottom-8 left-0",
+  },
+  {
+    icon: <PenLine className="size-3.5" />,
+    text: "Content Creation",
+    pos: "bottom-8 right-0",
+  },
+];
+
 function Hero() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -142,7 +180,6 @@ function Hero() {
   return (
     <section className="relative flex items-center pt-28 pb-20 px-6 md:px-[5vw] overflow-hidden min-h-[92vh]">
       <div className="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left */}
         <div>
           <div style={fadeUp(mounted, 0.1)}>
             <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-grayc px-4 py-1.5 rounded-full text-white text-xs font-medium tracking-wide mb-6">
@@ -194,7 +231,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* Right — Orbital Graphic */}
         <div
           style={fadeIn(mounted, 0.35)}
           className="hidden lg:flex justify-center items-center"
@@ -238,15 +274,10 @@ function Hero() {
               </span>
             </div>
 
-            {[
-              { text: "🤖 AI Automation", pos: "top-3 left-4" },
-              { text: "📊 Data Insights", pos: "top-3 right-4" },
-              { text: "📣 Lead Generation", pos: "bottom-8 left-0" },
-              { text: "✍️ Content Creation", pos: "bottom-8 right-0" },
-            ].map(({ text, pos }, idx) => (
+            {orbitTags.map(({ icon, text, pos }, idx) => (
               <div
                 key={text}
-                className={`absolute ${pos} px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap`}
+                className={`absolute ${pos} inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap`}
                 style={{
                   backgroundColor: "rgba(20,20,20,0.9)",
                   border: "1px solid rgba(255,255,255,0.08)",
@@ -256,6 +287,7 @@ function Hero() {
                   animation: `float ${2.5 + idx * 0.4}s ease-in-out infinite alternate`,
                 }}
               >
+                {icon}
                 {text}
               </div>
             ))}
@@ -276,7 +308,6 @@ function StatsBar() {
 
   return (
     <div ref={ref} className="relative z-10 py-16 px-6 md:px-[5vw]">
-      {/* Divider line */}
       <div
         className="max-w-6xl mx-auto mb-12 h-px"
         style={{
@@ -323,16 +354,15 @@ function MissionSection() {
           </h2>
         </div>
 
-        {/* Mission / Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
           {[
             {
-              icon: "🎯",
+              icon: <Target className="size-7 text-primary" />,
               title: "Our Mission",
               body: "To provide small organizations in Tamale and Northern Ghana with practical AI tools that automate tasks, generate leads, and simplify work — without requiring new staff or complex software.",
             },
             {
-              icon: "🔭",
+              icon: <Telescope className="size-7 text-primary" />,
               title: "Our Vision",
               body: "To be the go-to AI automation and support partner for Northern Ghana's small and mid-sized organizations — helping hundreds of businesses modernize operations without the tech headache.",
             },
@@ -342,7 +372,6 @@ function MissionSection() {
               style={fadeUp(visible, 0.15 + i * 0.15)}
               className="relative border border-grayc rounded-sm p-8 overflow-hidden group hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Hover glow */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
@@ -351,7 +380,7 @@ function MissionSection() {
                 }}
               />
               <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-primary/5 pointer-events-none" />
-              <span className="text-3xl mb-5 block">{icon}</span>
+              <div className="mb-5">{icon}</div>
               <h3
                 className="font-medium text-lg mb-3 text-white"
                 style={{ fontFamily: "'Syne', sans-serif" }}
@@ -363,7 +392,6 @@ function MissionSection() {
           ))}
         </div>
 
-        {/* Values */}
         <div style={fadeUp(visible, 0.3)}>
           <h3
             className="font-medium text-xl mb-2 text-white"
@@ -384,9 +412,9 @@ function MissionSection() {
               style={fadeUp(visible, 0.35 + i * 0.07)}
               className="border border-grayc rounded-sm p-5 hover:border-primary/40 hover:-translate-y-1 group transition-all duration-300"
             >
-              <span className="text-2xl mb-3 block group-hover:scale-110 transition-transform duration-200 inline-block">
+              <div className="mb-3 group-hover:scale-110 transition-transform duration-200 inline-block">
                 {icon}
-              </span>
+              </div>
               <h4
                 className="font-medium text-sm text-primary mb-1"
                 style={{ fontFamily: "'Syne', sans-serif" }}
@@ -411,7 +439,6 @@ function Story() {
       ref={ref}
       className="relative z-10 py-20 px-6 md:px-[5vw]"
     >
-      {/* Section background accent */}
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
@@ -421,7 +448,6 @@ function Story() {
       />
 
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-        {/* Left */}
         <div>
           <div style={fadeUp(visible, 0)}>
             <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">
@@ -452,7 +478,6 @@ function Story() {
           </div>
         </div>
 
-        {/* Right — Timeline */}
         <div style={fadeIn(visible, 0.2)} className="relative pl-8">
           <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/30 to-transparent" />
 
@@ -508,7 +533,6 @@ function Founder() {
 
         <div style={fadeUp(visible, 0.15)}>
           <div className="relative border border-grayc rounded-sm p-8 md:p-12 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 items-center overflow-hidden group hover:border-primary/30 transition-colors duration-500">
-            {/* Glow on hover */}
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
               style={{
@@ -524,7 +548,6 @@ function Founder() {
               "
             </div>
 
-            {/* Avatar */}
             <div className="relative mx-auto sm:mx-0 flex-shrink-0">
               <div
                 className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-2xl"
@@ -542,7 +565,6 @@ function Founder() {
               />
             </div>
 
-            {/* Info */}
             <div>
               <h3
                 className="font-medium text-lg text-white mb-0.5"
@@ -602,8 +624,8 @@ function WhyNFS() {
               style={fadeUp(visible, 0.1 + i * 0.08)}
               className="flex gap-4 items-start border border-grayc rounded-sm p-5 hover:border-primary/40 hover:-translate-y-1 group transition-all duration-300"
             >
-              <div className="w-7 h-7 rounded-sm bg-primary/10 flex items-center justify-center text-primary text-sm flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors duration-200">
-                ✓
+              <div className="w-7 h-7 rounded-sm bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors duration-200">
+                <Check className="size-4 text-primary" />
               </div>
               <div>
                 <h4

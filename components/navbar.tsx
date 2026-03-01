@@ -6,20 +6,21 @@ import { useState } from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/contact-us", label: "Contact" },
   { href: "/services", label: "Services" },
-  { href: "/testimonials", label: "Testimonials" },
+  // { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
 ];
 
 const Logo = () => (
-  <div className="flex flex-col leading-none">
-    <span className="font-gt text-white text-xl font-semibold tracking-tight">
+  <Link href="/" className="flex flex-col leading-none">
+    <span className="font-gt text-white text-xl font-medium tracking-tight">
       North<span className="text-primary">Star</span>
     </span>
     <span className="text-[9px] tracking-[0.2em] uppercase text-zinc-500">
       Futuristic Solutions
     </span>
-  </div>
+  </Link>
 );
 
 export default function Navbar() {

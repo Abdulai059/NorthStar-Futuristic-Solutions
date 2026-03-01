@@ -90,13 +90,13 @@ export default function TestimonialSection() {
         id="testimonials"
         className="marquee-row w-full mx-auto max-w-5xl overflow-hidden relative scroll-m-48"
       >
-        <div className="absolute left-0 top-0 h-full w-12 sm:w-20 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent" />
+        <div className="absolute left-0 top-0 h-full w-12 sm:w-20 z-10 pointer-events-none bg-linear-to-r from-background to-transparent" />
         <div className="marquee-inner flex transform-gpu min-w-[200%] pt-8 sm:pt-10 pb-4 sm:pb-5">
           {[...cardsData, ...cardsData].map((card, i) => (
             <Card key={i} card={card} />
           ))}
         </div>
-        <div className="absolute right-0 top-0 h-full w-12 sm:w-20 md:w-35 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent" />
+        <div className="absolute right-0 top-0 h-full w-12 sm:w-20 md:w-35 z-10 pointer-events-none bg-linear-to-l from-background to-transparent" />
       </div>
     </div>
   );
