@@ -77,7 +77,7 @@ export default function AboutSection() {
                   className="w-full h-60 object-cover rounded-xl transition-all duration-500"
                 />
 
-                <div className="w-full flex flex-col items-center space-y-4 sm:items-start sm:max-w-70">
+                <div className="w-full mt-6 flex flex-col items-center space-y-4 sm:items-start sm:max-w-70">
                   <div className="space-y-2 transition-all duration-500 text-center sm:text-left">
                     <p
                       className="text-lg font-medium text-white"
