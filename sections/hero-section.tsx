@@ -23,7 +23,7 @@ export default function HeroSection() {
           glowIntensity={40}
         />
 
-        <div className="relative min-h-screen pb-32 flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-40 text-black">
+        <div className="relative min-h-screen pb- flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-40 text-black">
           <div className="absolute top-28 xl:top-10 -z-50 left-1/4 size-72 sm:size-96 xl:size-120 2xl:size-132 blur-[100px] opacity-30"></div>
 
           <div className="flex items-center gap-2 text-gray-500 mt-32  rounded-full px-4 py-2">

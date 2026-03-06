@@ -44,10 +44,10 @@ export default function Navbar() {
         </div>
 
         <Link
-          href="/"
+          href="/contact-us"
           className="hidden md:block px-7 py-2 bg-primary hover:bg-grayc active:scale-95 transition-all rounded-sm text-white"
         >
-          Book A Demo
+          Book a Demo
         </Link>
 
         <button
@@ -110,7 +110,7 @@ export default function Navbar() {
 
         <div className="px-6 pb-10 pt-4 border-t border-grayc">
           <Link
-            href="/"
+            href="/contact-us"
             onClick={() => setMenuOpen(false)}
             className="flex items-center justify-center gap-2 w-full py-3 bg-primary hover:bg-grayc active:scale-95 transition-all rounded-sm text-white text-sm font-medium"
           >

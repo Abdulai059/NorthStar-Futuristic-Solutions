@@ -7,7 +7,7 @@ export default function CTASection() {
         </p>
 
         <a
-          href="/contact"
+          href="/contact-us"
           className="flex items-center gap-2 rounded-lg py-3 px-8 bg-primary hover:bg-grayc transition text-white"
         >
           <span>Book A Demo</span>

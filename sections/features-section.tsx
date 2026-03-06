@@ -37,9 +37,7 @@ function SectionBadge({ label }: { label: string }) {
 }
 
 export default function AboutSection() {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const activeIndex = hovered ?? 0;
-
+  const [activeIndex, setActiveIndex] = useState(0);
   const { ref, fadeUp } = useFadeIn();
 
   return (
@@ -57,7 +55,7 @@ export default function AboutSection() {
             Built for Local Impact
           </h2>
           <p className="text-secondary text-sm max-w-lg mx-auto leading-relaxed">
-            NorthStar Futuristic Solutions is northern Ghana’s AI automation
+            NorthStar Futuristic Solutions is northern Ghana's AI automation
             partner helping small organizations work smarter with tools that are
             simple, affordable, and built for the real world.
           </p>
@@ -69,65 +67,44 @@ export default function AboutSection() {
             className="relative w-full max-w-sm lg:max-w-md shrink-0 order-2 lg:order-1 mt-8 lg:mt-0"
           >
             <div
-              className="relative rounded-sm overflow-hidden border border-grayc"
+              className="relative rounded-sm overflow-hidden  shadow-sm"
               style={{ aspectRatio: "4/5" }}
             >
-              <div
-                className="absolute inset-0 opacity-[0.04]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-                  backgroundSize: "32px 32px",
-                }}
-              />
+              <div className="absolute inset-0 flex flex-col items-start justify-between md:p-6 p-4">
+                <img
+                  src="/make.png"
+                  alt="Make"
+                  className="w-full h-60 object-cover rounded-xl transition-all duration-500"
+                />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-10">
-                <div
-                  className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500"
-                  style={{
-                    background: "linear-gradient(135deg, #ee4822, #c93a18)",
-                    boxShadow:
-                      activeIndex === 0
-                        ? "0 0 60px rgba(238,72,34,0.4)"
-                        : activeIndex === 1
-                          ? "0 0 60px rgba(52,211,153,0.25)"
-                          : "0 0 60px rgba(251,191,36,0.25)",
-                  }}
-                >
-                  <span
-                    className="text-3xl font-bold text-white"
-                    style={{ fontFamily: "'Syne', sans-serif" }}
-                  >
-                    NFS
-                  </span>
-                </div>
+                <div className="w-full flex flex-col items-center space-y-4 sm:items-start sm:max-w-70">
+                  <div className="space-y-2 transition-all duration-500 text-center sm:text-left">
+                    <p
+                      className="text-lg font-medium text-white"
+                      style={{ fontFamily: "'Syne', sans-serif" }}
+                    >
+                      {features[activeIndex].title}
+                    </p>
+                    <p className="text-secondary text-xs leading-relaxed">
+                      {features[activeIndex].desc}
+                    </p>
+                  </div>
 
-                <div className="text-center space-y-2 transition-all duration-500">
-                  <p
-                    className="text-lg font-medium text-white"
-                    style={{ fontFamily: "'Syne', sans-serif" }}
-                  >
-                    {features[activeIndex].title}
-                  </p>
-                  <p className="text-secondary text-xs leading-relaxed max-w-[200px] mx-auto">
-                    {features[activeIndex].desc}
-                  </p>
-                </div>
-
-                <div className="flex gap-2 mt-2">
-                  {features.map((_, i) => (
-                    <div
-                      key={i}
-                      className="h-1 rounded-full transition-all duration-300"
-                      style={{
-                        width: activeIndex === i ? "24px" : "8px",
-                        background:
-                          activeIndex === i
-                            ? "#ee4822"
-                            : "rgba(255,255,255,0.15)",
-                      }}
-                    />
-                  ))}
+                  <div className="flex gap-2 justify-center sm:justify-start">
+                    {features.map((_, i) => (
+                      <div
+                        key={i}
+                        className="h-1 rounded-full transition-all duration-300"
+                        style={{
+                          width: activeIndex === i ? "24px" : "8px",
+                          background:
+                            activeIndex === i
+                              ? "#ee4822"
+                              : "rgba(255,255,255,0.15)",
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -136,14 +113,13 @@ export default function AboutSection() {
           <div
             style={fadeUp(0.25)}
             className="w-full max-w-md order-1 lg:order-2"
-            onMouseLeave={() => setHovered(null)}
           >
             {features.map(({ icon: Icon, color, title, desc }, i) => (
               <div
                 key={title}
                 style={fadeUp(0.35 + i * 0.1)}
                 className="group cursor-pointer"
-                onMouseEnter={() => setHovered(i)}
+                onMouseEnter={() => setActiveIndex(i)}
               >
                 <div
                   className={`flex gap-5 p-6 rounded-sm border transition-all duration-300 ${
